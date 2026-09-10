@@ -1,2 +1,52 @@
-# 10-
-Для конкурса 
+
+def calculator():
+    print("Простой калькулятор")
+    print("Доступные операции: +  -  *  /")
+    print("Для выхода введите 'q'")
+    print("-" * 30)
+ 
+    while True:
+        first = input("\nВведите первое число (или 'q' для выхода): ")
+        if first.lower() == 'q':
+            break
+ 
+        operator = input("Введите операцию (+, -, *, /): ")
+        if operator.lower() == 'q':
+            break
+ 
+        second = input("Введите второе число: ")
+        if second.lower() == 'q':
+            break
+ 
+        try:
+            num1 = float(first)
+            num2 = float(second)
+        except ValueError:
+            print("Ошибка: нужно вводить числа!")
+            continue
+ 
+        if operator == '+':
+            result = num1 + num2
+        elif operator == '-':
+            result = num1 - num2
+        elif operator == '*':
+            result = num1 * num2
+        elif operator == '/':
+            if num2 == 0:
+                print("Ошибка: деление на ноль!")
+                continue
+            result = num1 / num2
+        else:
+            print("Ошибка: неизвестная операция!")
+            continue
+        if result == int(result):
+            result = int(result)
+ 
+        print(f"Результат: {num1} {operator} {num2} = {result}")
+ 
+    print("\nДо свидания!")
+ 
+ 
+if __name__ == "__main__":
+    calculator()
+ 
